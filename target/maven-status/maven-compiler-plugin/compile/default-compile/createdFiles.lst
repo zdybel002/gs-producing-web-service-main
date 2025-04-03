@@ -1,0 +1,10 @@
+com\example\producingwebservice\WebServiceConfig.class
+io\spring\guides\gs_producing_web_service\ObjectFactory.class
+com\example\producingwebservice\ProducingWebServiceApplication.class
+io\spring\guides\gs_producing_web_service\GetCountryResponse.class
+com\example\producingwebservice\CountryRepository.class
+com\example\producingwebservice\CountryEndpoint.class
+io\spring\guides\gs_producing_web_service\Country.class
+io\spring\guides\gs_producing_web_service\GetCountryRequest.class
+io\spring\guides\gs_producing_web_service\package-info.class
+io\spring\guides\gs_producing_web_service\Currency.class
