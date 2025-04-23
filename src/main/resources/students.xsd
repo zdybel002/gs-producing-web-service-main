@@ -1,0 +1,36 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://task2/student"
+           xmlns:tns="http://task2/student"
+           elementFormDefault="qualified">
+
+    <!-- Zmieniamy nazwę elementu odpowiedzi, żeby pasowała do metody -->
+    <xs:element name="getAllStudentsRequest">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Poprawiona nazwa elementu odpowiedzi -->
+    <xs:element name="getAllStudentsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="tns:Student" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Student">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="courses" type="tns:Course" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Course">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="title" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

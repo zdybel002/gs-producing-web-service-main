@@ -15,6 +15,7 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
+
 	@Bean
 	public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {
 		MessageDispatcherServlet servlet = new MessageDispatcherServlet();
@@ -23,18 +24,18 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 		return new ServletRegistrationBean<>(servlet, "/ws/*");
 	}
 
-	@Bean(name = "countries")
-	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
+	@Bean(name = "students")
+	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema studentSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-		wsdl11Definition.setPortTypeName("CountriesPort");
+		wsdl11Definition.setPortTypeName("StudentPort"); // Poprawiona nazwa portu
 		wsdl11Definition.setLocationUri("/ws");
-		wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
-		wsdl11Definition.setSchema(countriesSchema);
+		wsdl11Definition.setTargetNamespace("http://task2/student");
+		wsdl11Definition.setSchema(studentSchema);
 		return wsdl11Definition;
 	}
 
 	@Bean
-	public XsdSchema countriesSchema() {
-		return new SimpleXsdSchema(new ClassPathResource("countries.xsd"));
+	public XsdSchema studentSchema() {
+		return new SimpleXsdSchema(new ClassPathResource("students.xsd"));
 	}
 }
